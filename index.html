@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remeder — Privacy Policy</title>
+<style>
+  :root {
+    --ink: #16211f;
+    --slate: #5a6b68;
+    --line: #e4e9ec;
+    --paper: #fbfaf7;
+    --accent: #2f6f6b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #eef2f1;
+      --slate: #a3b1ae;
+      --line: #2a3634;
+      --paper: #121817;
+      --accent: #7fc8c2;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 20px 96px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; }
+  h2 { font-size: 20px; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h3 { font-size: 16px; margin: 24px 0 8px; }
+  .meta { color: var(--slate); font-size: 14px; margin: 0 0 32px; }
+  a { color: var(--accent); }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; }
+  .note {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+  }
+  .wrap { overflow-x: auto; }
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--slate); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Remeder Privacy Policy</h1>
+<p class="meta">Last updated 31 August 2026</p>
+
+<p>Remeder is a medication reminder app. It stores the medicines you choose to track, reminds you when a dose is due, and keeps a record of the doses you mark as taken or skipped. This policy explains what the app collects, where it is stored, and how you can remove it.</p>
+
+<div class="note">
+  <strong>Remeder is not a medical device.</strong> It does not provide medical advice, diagnosis, or treatment, and it is not a substitute for a pharmacist or doctor. Always follow the directions on your prescription.
+</div>
+
+<h2>Who is responsible for your data</h2>
+<p>Remeder is operated by the developer of the app, acting as the data controller for the information described below. Contact details are at the bottom of this page.</p>
+
+<h2>What Remeder collects</h2>
+<p>Everything below is information <em>you</em> enter or generate by using the app. Remeder has no advertising, no analytics SDKs, no third-party trackers, and no crash-reporting SDK. It does not buy or receive data about you from anyone else.</p>
+
+<div class="wrap">
+<table>
+  <thead>
+    <tr><th>Category</th><th>What it includes</th><th>Why</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Account</td>
+      <td>Email address and a password, handled by Google Firebase Authentication. Remeder never sees or stores your password itself.</td>
+      <td>To sign you in and keep your data attached to you across devices.</td>
+    </tr>
+    <tr>
+      <td>Profiles</td>
+      <td>Display name, and optionally date of birth, gender, country, blood type, allergies, and medical conditions. You can create more than one profile, for example for a family member in your care.</td>
+      <td>To label whose medicines are whose, and to warn you about entries that conflict with a recorded allergy.</td>
+    </tr>
+    <tr>
+      <td>Health data</td>
+      <td>Medicine names, dosages, forms, schedules, treatment courses, inventory counts, and your dose history — which doses were taken, skipped, or snoozed, and when.</td>
+      <td>This is the core of the app. It drives your reminders, your adherence view, and refill alerts.</td>
+    </tr>
+    <tr>
+      <td>Care team</td>
+      <td>If you choose to add them: the name, relationship, and phone number of a doctor, pharmacist, or carer.</td>
+      <td>So the contact is available to you inside the app. Remeder does not contact these people.</td>
+    </tr>
+    <tr>
+      <td>Settings</td>
+      <td>Reminder preferences, meal times, notification and app-lock settings.</td>
+      <td>To schedule reminders at times that suit you.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Data that stays only on your device</h3>
+<ul>
+  <li><strong>Reminders.</strong> Dose reminders are scheduled by your phone's own alarm and notification system. The content of a reminder is not sent to any server.</li>
+  <li><strong>Cached data and preferences</strong>, held in local app storage so the app works without a connection.</li>
+  <li><strong>Biometric app lock.</strong> If you enable it, the check is performed by Android. Remeder never receives your fingerprint or face data.</li>
+</ul>
+
+<h3>What Remeder does not collect</h3>
+<ul>
+  <li>No location data.</li>
+  <li>No contacts, photos, or files, other than an image you deliberately submit to a feature that asks for one.</li>
+  <li>No advertising identifiers, and no data is used for advertising or sold to anyone.</li>
+</ul>
+
+<h2>Where your data is stored</h2>
+<p>Your account and the health data listed above are stored in Google Firebase (Firebase Authentication and Cloud Firestore), operated by Google LLC, on Google's servers. Data is encrypted in transit and encrypted at rest by Google. Access is restricted by security rules so that a signed-in account can read and write only its own records.</p>
+<p>Google acts as a processor for this data. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase's privacy documentation</a> for details of their handling.</p>
+
+<h2>Prescription scanning</h2>
+<p>Remeder includes a prescription-scanning feature that is <strong>turned off in this release</strong>. When it is enabled in a future version, a photo you choose to scan is sent to Remeder's own server and passed to Google's Gemini AI to read the medicine details from it. The image is processed to return that result and is not used to train any AI model. This section will be updated with full detail before the feature is switched on; until then, no image ever leaves your device.</p>
+
+<h2>Who your data is shared with</h2>
+<p>Remeder does not sell your data and does not share it for advertising. Data is disclosed only:</p>
+<ul>
+  <li><strong>To Google Firebase</strong>, as the hosting and authentication provider described above.</li>
+  <li><strong>To you</strong>, when you deliberately use an export or share feature — for example exporting your schedule to a calendar file, or sharing a summary with a carer. You choose the recipient; Remeder does not send anything on its own.</li>
+  <li><strong>Where the law requires it</strong>, such as a valid legal order.</li>
+</ul>
+
+<h2>How long it is kept</h2>
+<p>Your data is kept for as long as your account exists. Delete your account and it is removed, as described below.</p>
+
+<h2>Your choices and rights</h2>
+<ul>
+  <li><strong>See and edit</strong> everything in the app at any time.</li>
+  <li><strong>Export</strong> your data from the app, so you have your own copy.</li>
+  <li><strong>Delete individual records</strong> — a medicine, a course, or a whole profile.</li>
+  <li><strong>Delete your account</strong> from Profile → Privacy &amp; security. This asks you to sign in again to confirm, then removes your profiles, medicines, schedules, and dose history along with the account itself. It cannot be undone.</li>
+  <li><strong>Turn off reminders</strong> in the app, or revoke the notification and alarm permissions in Android settings.</li>
+</ul>
+<p>Depending on where you live, you may also have the right to object to or restrict processing, to data portability, or to complain to your local data protection authority. Write to the contact address below and we will respond.</p>
+
+<h2>Permissions Remeder asks for</h2>
+<ul>
+  <li><strong>Notifications</strong> — to show dose reminders.</li>
+  <li><strong>Alarms &amp; reminders (exact alarms)</strong> — so a reminder arrives at the dose time rather than whenever the system next wakes. If you decline it, reminders still work but may be delayed.</li>
+  <li><strong>Full-screen notifications</strong> — so a critical reminder is visible on a locked screen.</li>
+  <li><strong>Run at startup</strong> — to restore your pending reminders after the phone restarts.</li>
+  <li><strong>Internet</strong> — to sign in and sync your data.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Remeder is not directed at children and is intended for users aged 18 and over. An adult may record medicines on behalf of a child in their care; that information belongs to the adult's account and is under their control. We do not knowingly collect data directly from children.</p>
+
+<h2>Testing releases</h2>
+<p>This version of Remeder is distributed for testing. Test builds can change quickly, and data recorded during testing may be reset between versions. Please do not rely on a test build as your only record of a medication schedule.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes materially, the date at the top will be updated and the change will be announced in the app or on the store listing before it takes effect.</p>
+
+<h2>Contact</h2>
+<p>Questions, requests, or complaints about privacy: <a href="mailto:privacy@remeder.app">privacy@remeder.app</a></p>
+
+<footer>
+  Remeder — medicine reminders, dose tracking and refill alerts.
+</footer>
+
+</main>
+</body>
+</html>
