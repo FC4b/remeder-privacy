@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remeder — Delete your account</title>
+<style>
+  :root {
+    --ink: #16211f;
+    --slate: #5a6b68;
+    --line: #e4e9ec;
+    --paper: #fbfaf7;
+    --accent: #2f6f6b;
+    --warn: #b4531f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #eef2f1;
+      --slate: #a3b1ae;
+      --line: #2a3634;
+      --paper: #121817;
+      --accent: #7fc8c2;
+      --warn: #e8a273;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 20px 96px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; }
+  h2 { font-size: 20px; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  .meta { color: var(--slate); font-size: 14px; margin: 0 0 32px; }
+  a { color: var(--accent); }
+  ul { padding-left: 20px; }
+  ol { padding-left: 22px; }
+  li { margin: 8px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; }
+  .note {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+  }
+  .safety {
+    border: 1px solid color-mix(in srgb, var(--warn) 40%, var(--line));
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    background: color-mix(in srgb, var(--warn) 8%, transparent);
+  }
+  .safety strong { color: var(--warn); }
+  .wrap { overflow-x: auto; }
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--slate); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Delete your Remeder account</h1>
+<p class="meta">Remeder · app.remeder.mobile · Last updated 1 September 2026</p>
+
+<p>This page explains how to delete your Remeder account and everything stored with it, what is removed, and what to do if you can no longer sign in.</p>
+
+<div class="safety">
+  <p><strong>Deletion is permanent.</strong> Your medicines, schedules, and dose history cannot be recovered afterwards. If you want to keep a record, use <strong>Profile → Privacy &amp; security → Export</strong> first — it writes your data to a file you can save or send to yourself.</p>
+</div>
+
+<h2>Delete from inside the app</h2>
+<ol>
+  <li>Open Remeder and sign in.</li>
+  <li>Go to <strong>Profile</strong>.</li>
+  <li>Open <strong>Privacy &amp; security</strong>.</li>
+  <li>Choose <strong>Delete account</strong>.</li>
+  <li>Sign in again when asked — this confirms it is really you.</li>
+  <li>Type <strong>DELETE</strong> when prompted, then choose <strong>Delete permanently</strong>.</li>
+</ol>
+<p>The wipe starts immediately and cannot be cancelled once confirmed. From that moment no device can add new data to the account, even if it is still signed in elsewhere.</p>
+
+<h2>If you can no longer sign in</h2>
+<p>If you have uninstalled the app, lost access to your email address, or cannot complete the steps above, email <a href="mailto:privacy@remeder.app">privacy@remeder.app</a> from the address on the account and ask for deletion.</p>
+<p>We will confirm your request, verify that the address matches the account, and complete the deletion. Expect a reply within 30 days. Do not send your password — we will never ask for it.</p>
+
+<h2>What is deleted</h2>
+<div class="wrap">
+<table>
+  <tr><th>Data</th><th>What happens</th></tr>
+  <tr><td>Sign-in account (email address and credentials)</td><td>Deleted</td></tr>
+  <tr><td>Profiles, including name, date of birth, gender, country, blood type, allergies and conditions</td><td>Deleted</td></tr>
+  <tr><td>Medicines, courses, and schedules</td><td>Deleted</td></tr>
+  <tr><td>Dose history — taken, skipped, and missed records</td><td>Deleted</td></tr>
+  <tr><td>Care team contacts you entered</td><td>Deleted</td></tr>
+  <tr><td>Reminders queued on your device</td><td>Cancelled and cleared</td></tr>
+  <tr><td>Settings and cached data on the device</td><td>Cleared when you sign out or uninstall</td></tr>
+</table>
+</div>
+
+<h2>What is kept, and for how long</h2>
+<p>A record that the account was deleted is kept indefinitely. It contains no medical data and no personal details beyond the internal account identifier. We keep it because it is what continues to refuse writes from a device whose sign-in token outlived the account, and because those identifiers are never reused.</p>
+<p>Nothing else is retained. Remeder has no advertising, analytics, or crash-reporting services, so there is no copy of your data with a third party to delete separately. Ordinary infrastructure backups age out on their normal cycle and are not used to restore deleted accounts.</p>
+
+<h2>Deleting part of your data instead</h2>
+<p>You do not have to delete the whole account to remove something. Inside the app you can delete an individual medicine, a whole course, or an entire profile, and each is removed straight away. Profile details can also be edited at any time.</p>
+
+<h2>Contact</h2>
+<p>Questions or requests about deletion and privacy: <a href="mailto:privacy@remeder.app">privacy@remeder.app</a></p>
+
+<footer>
+Remeder — account deletion. See also the <a href="https://fc4b.github.io/remeder-privacy/">Privacy Policy</a> and the <a href="https://fc4b.github.io/remeder-privacy/terms/">Terms of Service</a>.
+</footer>
+
+</main>
+</body>
+</html>
