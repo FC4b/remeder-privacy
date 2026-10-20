@@ -97,6 +97,9 @@
   <tr><td>Medicines, courses, and schedules</td><td>Deleted</td></tr>
   <tr><td>Dose history — taken, skipped, and missed records</td><td>Deleted</td></tr>
   <tr><td>Care team contacts you entered</td><td>Deleted</td></tr>
+  <tr><td>People you shared with someone, and the invitations you sent, with any note on them</td><td>Deleted, and removed from the lists of the accounts you shared them with</td></tr>
+  <tr><td>Access someone else gave you to a person, with your name and email on it</td><td>Deleted from their account, which notes that access ended because an account was deleted</td></tr>
+  <tr><td>Your phone's notification token</td><td>Deleted</td></tr>
   <tr><td>Reminders queued on your device</td><td>Cancelled and cleared</td></tr>
   <tr><td>Settings and cached data on the device</td><td>Cleared when you sign out or uninstall</td></tr>
 </table>
@@ -104,6 +107,8 @@
 
 <h2>What is kept, and for how long</h2>
 <p>A record that the account was deleted is kept indefinitely. It contains no medical data and no personal details beyond the internal account identifier. We keep it because it is what continues to refuse writes from a device whose sign-in token outlived the account, and because those identifiers are never reused.</p>
+<p>If someone shared a person with you and you recorded doses for them, those dose records stay in that person's history, under your name. They are part of someone else's medication record, which belongs to the account that keeps it.</p>
+<p>Remeder's server keeps ordinary request logs, which Google Cloud deletes after 30 days.</p>
 <p>Nothing else is retained. Remeder has no advertising, analytics, or crash-reporting services, so there is no copy of your data with a third party to delete separately. Ordinary infrastructure backups age out on their normal cycle and are not used to restore deleted accounts.</p>
 
 <h2>Deleting part of your data instead</h2>
