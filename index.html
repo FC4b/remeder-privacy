@@ -55,7 +55,7 @@
 <main>
 
 <h1>Remeder Privacy Policy</h1>
-<p class="meta">Last updated 20 October 2026</p>
+<p class="meta">Last updated 21 October 2026</p>
 
 <p>Remeder is a medication reminder app. It stores the medicines you choose to track, for yourself or for someone in your care, reminds you when a dose is due, and keeps a record of the doses you mark as taken or skipped. It can read a medicine's label from a photo, and it lets you share a person's medicines with someone who helps look after them. This policy explains what the app collects, where it goes, and how you can remove it.</p>
 
@@ -94,6 +94,11 @@
       <td>Label photos</td>
       <td>Photos of a medicine's label or package, only when you scan one. See <a href="#scanning">Prescription scanning</a>.</td>
       <td>To fill in a new medicine's details for you to check.</td>
+    </tr>
+    <tr>
+      <td>Cloud scan count</td>
+      <td>Only if you have labels read in the cloud: how many your account has had read this calendar month — your account ID, the month, and a number. No photos, and nothing that was read from them.</td>
+      <td>To share the free cloud-reading capacity fairly: each account has a number of cloud readings a month.</td>
     </tr>
     <tr>
       <td>Sharing</td>
@@ -138,7 +143,7 @@
 
 <h2>Where your data is stored</h2>
 <p>Your account and the data listed above are stored in Google Firebase (Firebase Authentication and Cloud Firestore), operated by Google LLC, on Google's servers. Data is encrypted in transit and encrypted at rest by Google. Security rules limit each signed-in account to its own records. What someone you share a person with can see is served to them by Remeder's server, which shows them only what is described under <a href="#sharing">Sharing a person</a>.</p>
-<p>Remeder's server runs on Google Cloud in the United States. It relays label photos for cloud reading, runs sharing, and sends check-in alerts. It has no database of its own and does not store photos. Like any web service it keeps request logs — the time, the network address a request came from, which part of the service was asked for, and for sharing, the account and person it concerned — which Google Cloud deletes after 30 days.</p>
+<p>Remeder's server runs on Google Cloud in the United States. It relays label photos for cloud reading, runs sharing, and sends check-in alerts. It has no database of its own and does not store photos; the one thing it records is your cloud scan count, which it keeps in Cloud Firestore with your account. Like any web service it keeps request logs — the time, the network address a request came from, which part of the service was asked for, and for sharing, the account and person it concerned — which Google Cloud deletes after 30 days.</p>
 <p>Google acts as a processor for this data. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase's privacy documentation</a> for details of their handling. Your data may therefore be processed in countries other than your own, including the United States.</p>
 
 <h2 id="scanning">Prescription scanning</h2>
@@ -150,6 +155,7 @@
 <ul>
   <li>Before a photo is sent, the location and camera details stored in it are removed.</li>
   <li>Remeder's server does not keep the photos or what was read from them.</li>
+  <li>Remeder's server counts how many labels your account has had read in the cloud this calendar month — your account ID, the month, and a number — because the free capacity is shared, and each account has a number of cloud readings a month. A reading counts only if it found a medicine. The count starts again on the 1st of each month and is deleted with your account.</li>
   <li>Cloudflare's <a href="https://developers.cloudflare.com/workers-ai/platform/privacy/" rel="noopener">Workers AI terms</a> say it does not retain what it is sent after the request is answered, and does not use it to train AI models, except where the law requires it to retain something.</li>
   <li>The photos are not sent to Google or to any other AI company.</li>
 </ul>
@@ -191,7 +197,7 @@
   <li><strong>Delete individual records</strong> — a medicine, a course, or a whole profile.</li>
   <li><strong>Keep label photos on your phone</strong> by leaving Label Processing on its on-device default.</li>
   <li><strong>Stop sharing</strong> a person, or turn off check-in alerts, at any time.</li>
-  <li><strong>Delete your account</strong> from Profile → Privacy &amp; security. This asks you to sign in again to confirm, then removes your profiles, medicines, schedules, dose history, sharing and invitations, and push tokens along with the account itself, including your access to anyone shared with you. It cannot be undone.</li>
+  <li><strong>Delete your account</strong> from Profile → Privacy &amp; security. This asks you to sign in again to confirm, then removes your profiles, medicines, schedules, dose history, sharing and invitations, push tokens, and cloud scan count along with the account itself, including your access to anyone shared with you. It cannot be undone.</li>
   <li><strong>Turn off reminders</strong> in the app, or revoke the notification and alarm permissions in your phone's settings.</li>
 </ul>
 <p>Depending on where you live, you may also have the right to object to or restrict processing, to data portability, or to complain to your local data protection authority. Write to the contact address below and we will respond.</p>
