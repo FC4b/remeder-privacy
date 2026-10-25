@@ -55,7 +55,7 @@
 <main>
 
 <h1>Remeder Privacy Policy</h1>
-<p class="meta">Last updated 21 October 2026</p>
+<p class="meta">Last updated 25 October 2026</p>
 
 <p>Remeder is a medication reminder app. It stores the medicines you choose to track, for yourself or for someone in your care, reminds you when a dose is due, and keeps a record of the doses you mark as taken or skipped. It can read a medicine's label from a photo, and it lets you share a person's medicines with someone who helps look after them. This policy explains what the app collects, where it goes, and how you can remove it.</p>
 
@@ -142,9 +142,10 @@
 </ul>
 
 <h2>Where your data is stored</h2>
-<p>Your account and the data listed above are stored in Google Firebase (Firebase Authentication and Cloud Firestore), operated by Google LLC, on Google's servers. Data is encrypted in transit and encrypted at rest by Google. Security rules limit each signed-in account to its own records. What someone you share a person with can see is served to them by Remeder's server, which shows them only what is described under <a href="#sharing">Sharing a person</a>.</p>
-<p>Remeder's server runs on Google Cloud in the United States. It relays label photos for cloud reading, runs sharing, and sends check-in alerts. It has no database of its own and does not store photos; the one thing it records is your cloud scan count, which it keeps in Cloud Firestore with your account. Like any web service it keeps request logs — the time, the network address a request came from, which part of the service was asked for, and for sharing, the account and person it concerned — which Google Cloud deletes after 30 days.</p>
-<p>Google acts as a processor for this data. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase's privacy documentation</a> for details of their handling. Your data may therefore be processed in countries other than your own, including the United States.</p>
+<p>Your sign-in is handled by Google Firebase Authentication. The data listed above is stored in Remeder's own database, Cloud SQL for PostgreSQL on Google Cloud in Oregon, United States. Both are operated by Google LLC. Data is encrypted in transit and encrypted at rest by Google. The database lets each signed-in account read and change only its own records. Your phone keeps a copy of your records so the app works without a connection. The copy is not included in phone backups, and the app deletes it when you sign out or delete your account. What someone you share a person with can see is served to them by Remeder's server, which shows them only what is described under <a href="#sharing">Sharing a person</a>.</p>
+<p>Until 24 October 2026 these records were kept in Cloud Firestore, Firebase's database. They were not moved to the new database. Cloud Firestore was emptied on 24 October 2026, and the database itself was deleted on 25 October 2026.</p>
+<p>Remeder's server runs on Google Cloud in Oregon, United States. It keeps your records in the database above, relays label photos for cloud reading, runs sharing, and sends check-in alerts. It does not store photos. Your cloud scan count is kept in the same database with your account. Like any web service it keeps request logs — the time, the network address a request came from, which part of the service was asked for, and for sharing, the account and person it concerned — which Google Cloud deletes after 30 days.</p>
+<p>Google acts as a processor for this data. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase's privacy documentation</a> and the <a href="https://cloud.google.com/terms/cloud-privacy-notice" rel="noopener">Google Cloud Privacy Notice</a> for details of their handling. Your data may therefore be processed in countries other than your own, including the United States.</p>
 
 <h2 id="scanning">Prescription scanning</h2>
 <p>You can add a medicine by photographing its label or package. A label photo can show the patient's name, the hospital or pharmacy, and the medicine, so Remeder reads it on your phone unless you choose otherwise.</p>
