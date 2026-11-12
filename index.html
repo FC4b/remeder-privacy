@@ -55,9 +55,9 @@
 <main>
 
 <h1>Remeder Privacy Policy</h1>
-<p class="meta">Last updated 25 October 2026</p>
+<p class="meta">Last updated 12 November 2026</p>
 
-<p>Remeder is a medication reminder app. It stores the medicines you choose to track, for yourself or for someone in your care, reminds you when a dose is due, and keeps a record of the doses you mark as taken or skipped. It can read a medicine's label from a photo, and it lets you share a person's medicines with someone who helps look after them. This policy explains what the app collects, where it goes, and how you can remove it.</p>
+<p>Remeder is a medication reminder app. It stores the medicines you choose to track, for yourself or for someone in your care, reminds you when a dose is due, and keeps a record of the doses you mark as taken or skipped. It can read a medicine's label from a photo or look up the barcode on its box, and it lets you share a person's medicines with someone who helps look after them. This policy explains what the app collects, where it goes, and how you can remove it.</p>
 
 <div class="note">
   <strong>Remeder is not a medical device.</strong> It does not provide medical advice, diagnosis, or treatment, and it is not a substitute for a pharmacist or doctor. Always follow the directions on your prescription.
@@ -127,7 +127,8 @@
 <h3>Data that stays only on your device</h3>
 <ul>
   <li><strong>Reminders.</strong> Dose reminders are scheduled by your phone's own alarm and notification system. The content of a reminder is not sent to any server.</li>
-  <li><strong>Label photos read on the phone</strong>, which is the default. They are deleted when you finish the scan.</li>
+  <li><strong>Label photos.</strong> From version 1.12.0 every label is read on the phone, and the photos are deleted when you finish the scan.</li>
+  <li><strong>What you type to find a medicine.</strong> Suggestions come from a list of medicines built into the app, so what you type is not sent anywhere.</li>
   <li><strong>The on-device reading model</strong>, once downloaded.</li>
   <li><strong>Cached data and preferences</strong>, held in local app storage so the app works without a connection.</li>
   <li><strong>Biometric app lock.</strong> If you enable it, the check is performed by your phone. Remeder never receives your fingerprint or face data.</li>
@@ -135,7 +136,7 @@
 
 <h3>What Remeder does not collect</h3>
 <ul>
-  <li>No location data. A label photo that is sent to be read leaves without the location and camera details the phone stored in it.</li>
+  <li>No location data. A label photo that a version before 1.12.0 sent to be read left without the location and camera details the phone stored in it.</li>
   <li>No contacts or files, and no photos other than those you take or choose for a scan.</li>
   <li>No audio. Remeder does not use the microphone.</li>
   <li>No advertising identifiers, and no data is used for advertising or sold to anyone.</li>
@@ -144,15 +145,15 @@
 <h2>Where your data is stored</h2>
 <p>Your sign-in is handled by Google Firebase Authentication. The data listed above is stored in Remeder's own database, Cloud SQL for PostgreSQL on Google Cloud in Oregon, United States. Both are operated by Google LLC. Data is encrypted in transit and encrypted at rest by Google. The database lets each signed-in account read and change only its own records. Your phone keeps a copy of your records so the app works without a connection. The copy is not included in phone backups, and the app deletes it when you sign out or delete your account. What someone you share a person with can see is served to them by Remeder's server, which shows them only what is described under <a href="#sharing">Sharing a person</a>.</p>
 <p>Until 24 October 2026 these records were kept in Cloud Firestore, Firebase's database. They were not moved to the new database. Cloud Firestore was emptied on 24 October 2026, and the database itself was deleted on 25 October 2026.</p>
-<p>Remeder's server runs on Google Cloud in Oregon, United States. It keeps your records in the database above, relays label photos for cloud reading, runs sharing, and sends check-in alerts. It does not store photos. Your cloud scan count is kept in the same database with your account. Like any web service it keeps request logs — the time, the network address a request came from, which part of the service was asked for, and for sharing, the account and person it concerned — which Google Cloud deletes after 30 days.</p>
+<p>Remeder's server runs on Google Cloud in Oregon, United States. It keeps your records in the database above, looks up medicine barcodes, runs sharing, sends check-in alerts, and relays label photos for cloud reading from versions before 1.12.0. It does not store photos. If you used cloud reading, your cloud scan count is kept in the same database with your account. Like any web service it keeps request logs — the time, the network address a request came from, which part of the service was asked for, and for sharing, the account and person it concerned — which Google Cloud deletes after 30 days.</p>
 <p>Google acts as a processor for this data. See <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase's privacy documentation</a> and the <a href="https://cloud.google.com/terms/cloud-privacy-notice" rel="noopener">Google Cloud Privacy Notice</a> for details of their handling. Your data may therefore be processed in countries other than your own, including the United States.</p>
 
 <h2 id="scanning">Prescription scanning</h2>
-<p>You can add a medicine by photographing its label or package. A label photo can show the patient's name, the hospital or pharmacy, and the medicine, so Remeder reads it on your phone unless you choose otherwise.</p>
-<h3>On your phone (the default)</h3>
+<p>You can add a medicine by photographing its label or package. A label photo can show the patient's name, the hospital or pharmacy, and the medicine, so Remeder reads it on your phone.</p>
+<h3>On your phone</h3>
 <p>An AI model on your phone reads the photo, and the photo never leaves the phone. The model is downloaded once, from Hugging Face (2.6 GB, or 3.7 GB for the larger model you can choose). That download is an ordinary file request: Hugging Face sees your network address, as any website would, and nothing about you or your medicines.</p>
-<h3>In the cloud (only if you choose it)</h3>
-<p>If you choose <strong>Cloud AI</strong> in Label Processing, or allow the cloud to read a label when your phone cannot, the photos are sent to Remeder's server, which passes them to <strong>Cloudflare Workers AI</strong>. There, Gemma — an openly published AI model, run by Cloudflare on its own hardware — reads them and returns the medicine's details.</p>
+<h3>In the cloud (versions before 1.12.0 only)</h3>
+<p>From version 1.12.0 Remeder reads every label on your phone and sends no label photo anywhere. Earlier versions offered <strong>Cloud AI</strong>: if you chose it in Label Processing, or allowed the cloud to read a label when your phone could not, the photos were sent to Remeder's server, which passed them to <strong>Cloudflare Workers AI</strong>. There, Gemma — an openly published AI model, run by Cloudflare on its own hardware — read them and returned the medicine's details. While those versions are still in use, this is how it works:</p>
 <ul>
   <li>Before a photo is sent, the location and camera details stored in it are removed.</li>
   <li>Remeder's server does not keep the photos or what was read from them.</li>
@@ -162,10 +163,21 @@
 </ul>
 <p>Whichever way a label is read, you check every value before the medicine is added, and the photos on your phone are deleted when you finish.</p>
 
+<h2 id="barcodes">Scanning a medicine's barcode</h2>
+<p>You can also add a medicine by scanning the barcode on its box, or by typing the number printed under it.</p>
+<ul>
+  <li>The camera reads the barcode on your phone. No picture is taken, kept, or sent.</li>
+  <li>Remeder first looks for the number among the boxes already on your account. If it is not there, only the number is sent to Remeder's server, with your sign-in, to find which medicine it is.</li>
+  <li>The server answers from its own copy of the US National Library of Medicine's medicine list (RxNorm) and from a list of how shops in Thailand name some boxes. For a US product code it does not hold, the server asks the Library's RxNav service, sending the product code alone, never your account or your phone's network address. It keeps the Library's answer for that code, not who asked.</li>
+  <li>Like every request to the server, the lookup appears in its request log, which is deleted after 30 days.</li>
+  <li>If you add the medicine, the box's barcode, and its lot number where the code carries one, are saved with it like the rest of its details, so the same box scanned again is recognised.</li>
+</ul>
+<p>A barcode fills in at most the medicine's name, form and strength. You choose the dose and when it is taken.</p>
+
 <h2 id="sharing">Sharing a person</h2>
 <p>You can let someone who helps look after a person — a family member or a carer — see that person's medicines from their own Remeder account.</p>
 <ul>
-  <li><strong>How it starts.</strong> You create an invitation, confirming that the person has agreed to it, and send the link or code yourself. An invitation expires after 24 hours unless accepted. Access lasts 90 days unless you choose otherwise (at most a year), and at most five accounts can have access to one person.</li>
+  <li><strong>How it starts.</strong> You create an invitation, confirming that the person has agreed to it, and send the link or code yourself, or show it as a QR code for their phone to scan. An invitation expires after 24 hours unless accepted. Access lasts 90 days unless you choose otherwise (at most a year), and at most five accounts can have access to one person.</li>
   <li><strong>What they see.</strong> The person's name, avatar, and colour, and their doses from 14 days back to 7 days ahead: each medicine's name, when it is due, whether it was confirmed, and who recorded it. They do not see the person's date of birth, allergies, conditions, or notes, nor stock or anyone else on your account.</li>
   <li><strong>What they can do.</strong> A <em>viewer</em> can only look. A <em>caregiver</em> can also record a dose as taken, skipped, or not taken, which appears in your records with their name.</li>
   <li><strong>Check-in alerts.</strong> Someone with access can turn on alerts. If a dose has not been confirmed some time after it was due, their phone gets a notification naming the person and the dose time — not the medicine. A record of each alert is kept for 30 days so it is not sent twice.</li>
@@ -177,7 +189,8 @@
 <p>Remeder does not sell your data and does not share it for advertising. Data is disclosed only:</p>
 <ul>
   <li><strong>To Google</strong>, through Firebase and Google Cloud, as the hosting, sign-in, and notification provider described above.</li>
-  <li><strong>To Cloudflare</strong>, only the label photos of a scan you chose to have read in the cloud, as described under <a href="#scanning">Prescription scanning</a>.</li>
+  <li><strong>To Cloudflare</strong>, only the label photos of a scan you chose to have read in the cloud, in a version before 1.12.0, as described under <a href="#scanning">Prescription scanning</a>.</li>
+  <li><strong>To the US National Library of Medicine</strong>, only a US medicine's product code, when Remeder's server asks its RxNav service about a box it does not know, as described under <a href="#barcodes">Scanning a medicine's barcode</a>. Nothing about you is sent.</li>
   <li><strong>To people you share a person with</strong>, as described under <a href="#sharing">Sharing a person</a>.</li>
   <li><strong>To you</strong>, when you deliberately use an export or share feature — a calendar file, a Google Calendar event (which opens Google Calendar with the medicine and its schedule filled in), a PDF report, or a data export. You choose the recipient; Remeder does not send anything on its own.</li>
   <li><strong>Where the law requires it</strong>, such as a valid legal order.</li>
@@ -196,7 +209,7 @@
   <li><strong>See and edit</strong> everything in the app at any time.</li>
   <li><strong>Export</strong> your data from the app, so you have your own copy.</li>
   <li><strong>Delete individual records</strong> — a medicine, a course, or a whole profile.</li>
-  <li><strong>Keep label photos on your phone</strong> by leaving Label Processing on its on-device default.</li>
+  <li><strong>Keep label photos on your phone.</strong> From version 1.12.0 they always stay there. In an earlier version, leave Label Processing on its on-device default.</li>
   <li><strong>Stop sharing</strong> a person, or turn off check-in alerts, at any time.</li>
   <li><strong>Delete your account</strong> from Profile → Privacy &amp; security. This asks you to sign in again to confirm, then removes your profiles, medicines, schedules, dose history, sharing and invitations, push tokens, and cloud scan count along with the account itself, including your access to anyone shared with you. It cannot be undone.</li>
   <li><strong>Turn off reminders</strong> in the app, or revoke the notification and alarm permissions in your phone's settings.</li>
@@ -209,7 +222,7 @@
   <li><strong>Alarms &amp; reminders (exact alarms)</strong> — so a reminder arrives at the dose time rather than whenever the system next wakes. If you decline it, reminders still work but may be delayed.</li>
   <li><strong>Full-screen notifications</strong> — so a critical reminder is visible on a locked screen.</li>
   <li><strong>Run at startup</strong> — to restore your pending reminders after the phone restarts.</li>
-  <li><strong>Camera</strong> — to photograph a label. By default Remeder opens your phone's own camera app instead.</li>
+  <li><strong>Camera</strong> — to photograph a label, and to read a box's barcode or an invitation's QR code. For a label photo Remeder opens your phone's own camera app by default instead.</li>
   <li><strong>Biometrics</strong> — used only if you turn on the app lock.</li>
   <li><strong>Internet</strong> — to sign in, sync your data, download the reading model, and share.</li>
 </ul>
